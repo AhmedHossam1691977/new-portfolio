@@ -270,26 +270,26 @@ export default function AIChatWidget() {
         <div
           data-lenis-prevent="true"
           style={{
-            left: position ? Math.min(position.x, (typeof window !== 'undefined' ? window.innerWidth - 440 : 300)) : undefined,
-            bottom: isMobile ? '160px' : '100px',
+            left: position ? Math.min(position.x, (typeof window !== 'undefined' ? window.innerWidth - 360 : 280)) : undefined,
+            bottom: isMobile ? '105px' : '95px',
           }}
-          className="fixed right-4 sm:right-6 bottom-20 z-[9998] w-[92vw] sm:w-[440px] h-[560px] max-h-[82vh] glass-panel rounded-3xl border border-cyan-500/40 bg-[#070a14]/98 shadow-[0_30px_70px_rgba(0,0,0,0.95)] backdrop-blur-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200 pointer-events-auto"
+          className="fixed right-3 sm:right-6 z-[9998] w-[88vw] max-w-[340px] sm:w-[420px] h-[410px] sm:h-[520px] max-h-[58vh] sm:max-h-[75vh] glass-panel rounded-2xl sm:rounded-3xl border border-cyan-500/40 bg-[#070a14]/98 shadow-[0_20px_50px_rgba(0,0,0,0.95)] backdrop-blur-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200 pointer-events-auto"
         >
           
           {/* Header */}
-          <div className="px-5 py-4 bg-gradient-to-r from-cyan-950/90 via-[#0a0f24] to-violet-950/90 border-b border-cyan-500/30 flex items-center justify-between shrink-0">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-xl bg-cyan-500/20 border border-cyan-400/40 shadow-sm">
-                <Bot className="w-5 h-5 text-cyan-300 animate-pulse" />
+          <div className="px-3.5 sm:px-5 py-2.5 sm:py-3.5 bg-gradient-to-r from-cyan-950/90 via-[#0a0f24] to-violet-950/90 border-b border-cyan-500/30 flex items-center justify-between shrink-0">
+            <div className="flex items-center gap-2.5">
+              <div className="p-1.5 sm:p-2 rounded-xl bg-cyan-500/20 border border-cyan-400/40 shadow-sm">
+                <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-300 animate-pulse" />
               </div>
               <div>
                 <h3
                   style={{ fontFamily: 'var(--font-cinzel), serif' }}
-                  className="text-sm sm:text-base font-black tracking-wider text-white uppercase bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent"
+                  className="text-xs sm:text-sm font-black tracking-wider text-white uppercase bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent"
                 >
                   AHMED HOSSAM AI RAG
                 </h3>
-                <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400">
+                <div className="flex items-center gap-1 text-[9px] sm:text-[10px] font-mono text-emerald-400">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span>CV KNOWLEDGE BASE ACTIVE</span>
                 </div>

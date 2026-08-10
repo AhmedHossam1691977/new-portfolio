@@ -92,7 +92,7 @@ export default function HeroSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Intro Animation Timeline
+      const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
       const introTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
       introTl
@@ -103,8 +103,8 @@ export default function HeroSection() {
         )
         .fromTo(
           '.hero-name-heading',
-          { opacity: 0, y: 40, filter: 'blur(12px)', scale: 0.95 },
-          { opacity: 1, y: 0, filter: 'blur(0px)', scale: 1, duration: 1, ease: 'power4.out' },
+          { opacity: 0, y: 30, ...(isMobile ? {} : { filter: 'blur(12px)', scale: 0.95 }) },
+          { opacity: 1, y: 0, scale: 1, ...(isMobile ? {} : { filter: 'blur(0px)' }), duration: 1, ease: 'power4.out' },
           '-=0.4'
         )
         .fromTo(

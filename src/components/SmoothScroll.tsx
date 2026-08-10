@@ -13,6 +13,11 @@ interface SmoothScrollProps {
 
 export default function SmoothScroll({ children }: SmoothScrollProps) {
   useEffect(() => {
+    const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
+    
+    // On mobile devices, native touch scrolling is much lighter and smoother
+    if (isMobile) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -20,7 +25,7 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 2,
+      touchMultiplier: 1.5,
     });
 
     // Synchronize Lenis scroll position with GSAP ScrollTrigger

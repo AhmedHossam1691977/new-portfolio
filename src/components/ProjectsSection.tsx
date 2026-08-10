@@ -24,22 +24,25 @@ export default function ProjectsSection() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const projectsCount = PROJECTS.length;
+      const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
 
-      // GSAP ScrollTrigger Pinned Timeline with Labels & Snap
+      // GSAP ScrollTrigger Pinned Timeline with Mobile-optimized parameters
       const tl = gsap.timeline({
         scrollTrigger: {
           id: 'projects-pinned-st',
           trigger: sectionRef.current,
           pin: true,
           start: 'top top',
-          end: `+=${projectsCount * 550}`,
-          scrub: 1,
-          snap: {
-            snapTo: 'labels',
-            duration: { min: 0.2, max: 1.5 },
-            delay: 0.15,
-            ease: 'power1.inOut',
-          },
+          end: `+=${projectsCount * (isMobile ? 380 : 550)}`,
+          scrub: isMobile ? 0.3 : 1,
+          snap: isMobile
+            ? undefined
+            : {
+                snapTo: 'labels',
+                duration: { min: 0.2, max: 1.5 },
+                delay: 0.15,
+                ease: 'power1.inOut',
+              },
           onUpdate: (self) => {
             const idx = Math.min(
               projectsCount - 1,
@@ -50,19 +53,31 @@ export default function ProjectsSection() {
         },
       });
 
-      // Add labels and timeline animations for stacked card layers
+      // Add labels and timeline animations tailored for Mobile (super fast) vs Desktop (rich 3D)
       PROJECTS.forEach((_, idx) => {
         tl.addLabel(`project-${idx}`);
 
         if (idx < projectsCount - 1) {
-          // Diverse exit directions: Card 0 -> Right, Card 1 -> Left, Card 2 -> Up, Card 3 -> Right, Card 4 -> Left
           let exitVars = {};
-          if (idx % 3 === 0) {
-            exitVars = { xPercent: 125, rotate: 8, opacity: 0, filter: 'blur(8px)' };
-          } else if (idx % 3 === 1) {
-            exitVars = { xPercent: -125, rotate: -8, opacity: 0, filter: 'blur(8px)' };
+          let enterStartVars = {};
+          let enterEndVars = {};
+
+          if (isMobile) {
+            // Lightweight 60fps mobile fade/slide without expensive blur filters or heavy 3D rotation
+            exitVars = { yPercent: -90, opacity: 0 };
+            enterStartVars = { scale: 0.96, opacity: 0.2 };
+            enterEndVars = { scale: 1, opacity: 1, duration: 1, ease: 'power1.out' };
           } else {
-            exitVars = { yPercent: -125, scale: 0.85, opacity: 0, filter: 'blur(8px)' };
+            // Rich 3D Desktop animations with blur, rotation & spatial offsets
+            if (idx % 3 === 0) {
+              exitVars = { xPercent: 125, rotate: 8, opacity: 0, filter: 'blur(8px)' };
+            } else if (idx % 3 === 1) {
+              exitVars = { xPercent: -125, rotate: -8, opacity: 0, filter: 'blur(8px)' };
+            } else {
+              exitVars = { yPercent: -125, scale: 0.85, opacity: 0, filter: 'blur(8px)' };
+            }
+            enterStartVars = { scale: 0.92, y: 25, opacity: 0.4, filter: 'blur(6px)' };
+            enterEndVars = { scale: 1, y: 0, opacity: 1, filter: 'blur(0px)', duration: 1, ease: 'power2.out' };
           }
 
           tl.to(
@@ -70,22 +85,15 @@ export default function ProjectsSection() {
             {
               ...exitVars,
               duration: 1,
-              ease: 'power2.inOut',
+              ease: isMobile ? 'power1.out' : 'power2.inOut',
             },
             `project-${idx}`
           );
 
           tl.fromTo(
             `.project-card-stack-${idx + 1}`,
-            { scale: 0.92, y: 25, opacity: 0.4, filter: 'blur(6px)' },
-            {
-              scale: 1,
-              y: 0,
-              opacity: 1,
-              filter: 'blur(0px)',
-              duration: 1,
-              ease: 'power2.out',
-            },
+            enterStartVars,
+            enterEndVars,
             `project-${idx}`
           );
         }

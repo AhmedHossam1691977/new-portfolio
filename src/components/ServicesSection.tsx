@@ -24,7 +24,7 @@ export default function ServicesSection() {
   const { theme } = useApp();
   const isDark = theme === 'dark';
 
-  const [activeTab, setActiveTab] = useState<'all' | 'tech' | 'marketing'>('all');
+  const [activeTab, setActiveTab] = useState<'tech' | 'marketing'>('tech');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
 
@@ -50,8 +50,7 @@ export default function ServicesSection() {
   // Filter services
   const filteredServices = useMemo(() => {
     return servicesData.filter((service) => {
-      const matchesCategory =
-        activeTab === 'all' ? true : service.category === activeTab;
+      const matchesCategory = service.category === activeTab;
 
       const q = searchQuery.toLowerCase().trim();
       if (!q) return matchesCategory;
@@ -130,103 +129,72 @@ export default function ServicesSection() {
         {/* ========================================================= */}
         {/* CONTROLS: CATEGORY TABS & SEARCH INPUT                    */}
         {/* ========================================================= */}
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-12">
           {/* Category Tabs */}
-          <div className="w-full md:w-auto overflow-x-auto scrollbar-none pb-1 -mx-1 px-1 sm:mx-0 sm:px-0">
-            <div
-              className={`inline-flex items-center p-1.5 rounded-2xl border transition-all min-w-max ${
-                isDark
-                  ? 'bg-slate-900/80 border-slate-800/90 shadow-inner'
-                  : 'bg-white border-slate-200 shadow-sm'
+          <div
+            className={`flex items-center p-1.5 rounded-2xl border transition-all ${
+              isDark
+                ? 'bg-slate-900/80 border-slate-800/90 shadow-inner'
+                : 'bg-white border-slate-200 shadow-sm'
+            }`}
+          >
+            <button
+              onClick={() => setActiveTab('tech')}
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
+                activeTab === 'tech'
+                  ? isDark
+                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-sm'
+                    : 'bg-cyan-600 text-white shadow'
+                  : isDark
+                  ? 'text-slate-400 hover:text-white'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <button
-                onClick={() => setActiveTab('all')}
-                className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
-                  activeTab === 'all'
-                    ? isDark
-                      ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-sm'
-                      : 'bg-cyan-600 text-white shadow'
-                    : isDark
-                    ? 'text-slate-400 hover:text-white'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                <span>All Services</span>
-                <span
-                  className={`text-[11px] px-2 py-0.5 rounded-full ${
-                    activeTab === 'all'
-                      ? isDark
-                        ? 'bg-cyan-500/30 text-cyan-200'
-                        : 'bg-white/20 text-white'
-                      : isDark
-                      ? 'bg-slate-800 text-slate-400'
-                      : 'bg-slate-100 text-slate-600'
-                  }`}
-                >
-                  {servicesData.length}
-                </span>
-              </button>
-
-              <button
-                onClick={() => setActiveTab('tech')}
-                className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
+              <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400" />
+              <span>Tech & Dev</span>
+              <span
+                className={`text-[11px] px-2 py-0.5 rounded-full ${
                   activeTab === 'tech'
                     ? isDark
-                      ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-sm'
-                      : 'bg-cyan-600 text-white shadow'
+                      ? 'bg-cyan-500/30 text-cyan-200'
+                      : 'bg-white/20 text-white'
                     : isDark
-                    ? 'text-slate-400 hover:text-white'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-slate-800 text-slate-400'
+                    : 'bg-slate-100 text-slate-600'
                 }`}
               >
-                <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                <span>Tech & Dev</span>
-                <span
-                  className={`text-[11px] px-2 py-0.5 rounded-full ${
-                    activeTab === 'tech'
-                      ? isDark
-                        ? 'bg-cyan-500/30 text-cyan-200'
-                        : 'bg-white/20 text-white'
-                      : isDark
-                      ? 'bg-slate-800 text-slate-400'
-                      : 'bg-slate-100 text-slate-600'
-                  }`}
-                >
-                  {techCount}
-                </span>
-              </button>
+                {techCount}
+              </span>
+            </button>
 
-              <button
-                onClick={() => setActiveTab('marketing')}
-                className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
+            <button
+              onClick={() => setActiveTab('marketing')}
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
+                activeTab === 'marketing'
+                  ? isDark
+                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-sm'
+                    : 'bg-cyan-600 text-white shadow'
+                  : isDark
+                  ? 'text-slate-400 hover:text-white'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-fuchsia-400" />
+              <span>Media & Marketing</span>
+              <span
+                className={`text-[11px] px-2 py-0.5 rounded-full ${
                   activeTab === 'marketing'
                     ? isDark
-                      ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-sm'
-                      : 'bg-cyan-600 text-white shadow'
+                      ? 'bg-cyan-500/20 text-cyan-300'
+                      : 'bg-white/20 text-white'
                     : isDark
-                    ? 'text-slate-400 hover:text-white'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-slate-800 text-slate-400'
+                    : 'bg-slate-100 text-slate-600'
                 }`}
               >
-                <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                <span>Media & Marketing</span>
-                <span
-                  className={`text-[11px] px-2 py-0.5 rounded-full ${
-                    activeTab === 'marketing'
-                      ? isDark
-                        ? 'bg-cyan-500/20 text-cyan-300'
-                        : 'bg-white/20 text-white'
-                      : isDark
-                      ? 'bg-slate-800 text-slate-400'
-                      : 'bg-slate-100 text-slate-600'
-                  }`}
-                >
-                  {marketingCount}
-                </span>
-              </button>
-            </div>
+                {marketingCount}
+              </span>
+            </button>
           </div>
 
           {/* Search Box */}
@@ -298,7 +266,7 @@ export default function ServicesSection() {
             <button
               onClick={() => {
                 setSearchQuery('');
-                setActiveTab('all');
+                setActiveTab('tech');
               }}
               className="px-4 py-2 rounded-xl text-xs font-semibold bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition"
             >

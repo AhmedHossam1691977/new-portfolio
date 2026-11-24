@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="media-buying-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d18"/>
+      <stop offset="50%" stop-color="#060810"/>
+      <stop offset="100%" stop-color="#04050a"/>
+    </linearGradient>
+
+    <!-- Ambient Glow Light Gradients -->
+    <radialGradient id="media-buying-glow1" cx="35%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <radialGradient id="media-buying-glow2" cx="70%" cy="75%" r="45%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#ef4444" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="media-buying-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+
+    <linearGradient id="media-buying-card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.01"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="media-buying-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="450" fill="url(#media-buying-bg)"/>
+  <rect width="800" height="450" fill="url(#media-buying-grid)"/>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="280" cy="180" r="280" fill="url(#media-buying-glow1)"/>
+  <circle cx="560" cy="300" r="240" fill="url(#media-buying-glow2)"/>
+
+  <!-- Top Accent Neon Bar -->
+  <rect x="0" y="0" width="800" height="3" fill="url(#media-buying-accent)"/>
+
+  <!-- Corner Tech Reticle Lines -->
+  <path d="M 30 50 L 30 30 L 50 30" fill="none" stroke="#f59e0b" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 50 L 770 30 L 750 30" fill="none" stroke="#ef4444" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 30 400 L 30 420 L 50 420" fill="none" stroke="#f59e0b" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 400 L 770 420 L 750 420" fill="none" stroke="#ef4444" stroke-opacity="0.4" stroke-width="2"/>
+
+  <!-- Central Custom Artwork -->
+  
+      <!-- Ad Campaign Bidding Matrix & Target Radar -->
+      <g transform="translate(150, 90)">
+        <!-- Radar Target Rings -->
+        <circle cx="140" cy="140" r="120" fill="none" stroke="#f59e0b" stroke-opacity="0.2" stroke-width="1.5"/>
+        <circle cx="140" cy="140" r="85" fill="none" stroke="#f59e0b" stroke-opacity="0.3" stroke-width="1.5"/>
+        <circle cx="140" cy="140" r="50" fill="none" stroke="#ef4444" stroke-opacity="0.4" stroke-width="2"/>
+        <circle cx="140" cy="140" r="10" fill="#ef4444"/>
+
+        <!-- Radar Sweep Line -->
+        <line x1="140" y1="140" x2="230" y2="70" stroke="#f59e0b" stroke-width="2.5"/>
+        <!-- Target Dots -->
+        <circle cx="180" cy="95" r="4" fill="#fbbf24"/>
+        <circle cx="105" cy="115" r="4" fill="#22c55e"/>
+        <circle cx="165" cy="185" r="4" fill="#ef4444"/>
+      </g>
+
+      <!-- Bid Management Dashboard Card -->
+      <g transform="translate(440, 95)">
+        <rect width="220" height="230" rx="14" fill="#0a0d18" stroke="#f59e0b" stroke-width="1.5"/>
+        <rect x="20" y="20" width="80" height="12" rx="3" fill="#f59e0b" fill-opacity="0.5"/>
+        
+        <!-- Metrics Rows -->
+        <rect x="20" y="50" width="180" height="42" rx="8" fill="rgba(255,255,255,0.04)"/>
+        <rect x="35" y="60" width="40" height="8" rx="2" fill="rgba(255,255,255,0.3)"/>
+        <rect x="35" y="74" width="70" height="10" rx="2" fill="#22c55e"/>
+
+        <rect x="20" y="105" width="180" height="42" rx="8" fill="rgba(255,255,255,0.04)"/>
+        <rect x="35" y="115" width="40" height="8" rx="2" fill="rgba(255,255,255,0.3)"/>
+        <rect x="35" y="129" width="90" height="10" rx="2" fill="#38bdf8"/>
+
+        <!-- ROAS Bar Chart -->
+        <g transform="translate(30, 165)">
+          <rect x="0" y="30" width="20" height="25" rx="3" fill="#f59e0b" fill-opacity="0.5"/>
+          <rect x="32" y="15" width="20" height="40" rx="3" fill="#f59e0b" fill-opacity="0.7"/>
+          <rect x="64" y="2" width="20" height="53" rx="3" fill="#22c55e"/>
+          <rect x="96" y="20" width="20" height="35" rx="3" fill="#f59e0b" fill-opacity="0.6"/>
+          <rect x="128" y="8" width="20" height="47" rx="3" fill="#22c55e"/>
+        </g>
+      </g>
+    
+</svg>

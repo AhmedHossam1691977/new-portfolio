@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="cloud-devops-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d18"/>
+      <stop offset="50%" stop-color="#060810"/>
+      <stop offset="100%" stop-color="#04050a"/>
+    </linearGradient>
+
+    <!-- Ambient Glow Light Gradients -->
+    <radialGradient id="cloud-devops-glow1" cx="35%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#f43f5e" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <radialGradient id="cloud-devops-glow2" cx="70%" cy="75%" r="45%">
+      <stop offset="0%" stop-color="#fb923c" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#fb923c" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="cloud-devops-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="50%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+
+    <linearGradient id="cloud-devops-card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.01"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="cloud-devops-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="450" fill="url(#cloud-devops-bg)"/>
+  <rect width="800" height="450" fill="url(#cloud-devops-grid)"/>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="280" cy="180" r="280" fill="url(#cloud-devops-glow1)"/>
+  <circle cx="560" cy="300" r="240" fill="url(#cloud-devops-glow2)"/>
+
+  <!-- Top Accent Neon Bar -->
+  <rect x="0" y="0" width="800" height="3" fill="url(#cloud-devops-accent)"/>
+
+  <!-- Corner Tech Reticle Lines -->
+  <path d="M 30 50 L 30 30 L 50 30" fill="none" stroke="#f43f5e" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 50 L 770 30 L 750 30" fill="none" stroke="#fb923c" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 30 400 L 30 420 L 50 420" fill="none" stroke="#f43f5e" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 400 L 770 420 L 750 420" fill="none" stroke="#fb923c" stroke-opacity="0.4" stroke-width="2"/>
+
+  <!-- Central Custom Artwork -->
+  
+      <!-- CI/CD Automation Pipeline & Docker Containers -->
+      <!-- Pipeline Track -->
+      <path d="M 120 225 L 680 225" stroke="rgba(255,255,255,0.15)" stroke-width="4"/>
+
+      <!-- Stage 1: Build -->
+      <g transform="translate(130, 165)">
+        <circle cx="60" cy="60" r="48" fill="#0d1020" stroke="#f43f5e" stroke-width="2"/>
+        <circle cx="60" cy="60" r="32" fill="#f43f5e" fill-opacity="0.2"/>
+        <path d="M 48 60 L 56 68 L 74 50" fill="none" stroke="#f43f5e" stroke-width="3"/>
+      </g>
+
+      <!-- Stage 2: Container (Docker Hexagon) -->
+      <g transform="translate(280, 155)">
+        <polygon points="70,10 125,40 125,100 70,130 15,100 15,40" fill="#0d1020" stroke="#fb923c" stroke-width="2"/>
+        <!-- Container Boxes -->
+        <rect x="40" y="45" width="16" height="14" rx="2" fill="#fb923c"/>
+        <rect x="62" y="45" width="16" height="14" rx="2" fill="#fb923c"/>
+        <rect x="84" y="45" width="16" height="14" rx="2" fill="#fb923c"/>
+        <rect x="51" y="65" width="16" height="14" rx="2" fill="#fb923c"/>
+        <rect x="73" y="65" width="16" height="14" rx="2" fill="#fb923c"/>
+      </g>
+
+      <!-- Stage 3: Test & Scan -->
+      <g transform="translate(450, 165)">
+        <circle cx="60" cy="60" r="48" fill="#0d1020" stroke="#f97316" stroke-width="2"/>
+        <circle cx="60" cy="60" r="32" fill="#f97316" fill-opacity="0.2"/>
+        <path d="M 60 40 L 75 55 L 60 70 L 45 55 Z" fill="#f97316"/>
+        <circle cx="60" cy="85" r="4" fill="#f97316"/>
+      </g>
+
+      <!-- Stage 4: Cloud Deploy (AWS S3/EC2 Cloud Cluster) -->
+      <g transform="translate(600, 155)">
+        <path d="M 35 75 A 25 25 0 0 1 70 50 A 35 35 0 0 1 125 60 A 25 25 0 0 1 115 105 L 35 105 A 20 20 0 0 1 35 75 Z" fill="#f43f5e" fill-opacity="0.25" stroke="#f43f5e" stroke-width="2"/>
+        <circle cx="65" cy="80" r="5" fill="#f43f5e"/>
+        <circle cx="85" cy="80" r="5" fill="#fb923c"/>
+        <circle cx="105" cy="80" r="5" fill="#f97316"/>
+      </g>
+    
+</svg>

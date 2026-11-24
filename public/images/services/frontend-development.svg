@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="frontend-development-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d18"/>
+      <stop offset="50%" stop-color="#060810"/>
+      <stop offset="100%" stop-color="#04050a"/>
+    </linearGradient>
+
+    <!-- Ambient Glow Light Gradients -->
+    <radialGradient id="frontend-development-glow1" cx="35%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#0ea5e9" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <radialGradient id="frontend-development-glow2" cx="70%" cy="75%" r="45%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#6366f1" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="frontend-development-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+
+    <linearGradient id="frontend-development-card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.01"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="frontend-development-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="450" fill="url(#frontend-development-bg)"/>
+  <rect width="800" height="450" fill="url(#frontend-development-grid)"/>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="280" cy="180" r="280" fill="url(#frontend-development-glow1)"/>
+  <circle cx="560" cy="300" r="240" fill="url(#frontend-development-glow2)"/>
+
+  <!-- Top Accent Neon Bar -->
+  <rect x="0" y="0" width="800" height="3" fill="url(#frontend-development-accent)"/>
+
+  <!-- Corner Tech Reticle Lines -->
+  <path d="M 30 50 L 30 30 L 50 30" fill="none" stroke="#0ea5e9" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 50 L 770 30 L 750 30" fill="none" stroke="#6366f1" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 30 400 L 30 420 L 50 420" fill="none" stroke="#0ea5e9" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 400 L 770 420 L 750 420" fill="none" stroke="#6366f1" stroke-opacity="0.4" stroke-width="2"/>
+
+  <!-- Central Custom Artwork -->
+  
+      <!-- Responsive Viewports Stack (Desktop, Tablet, Mobile) -->
+      <!-- Desktop Monitor -->
+      <g transform="translate(180, 75)">
+        <rect width="360" height="210" rx="12" fill="url(#frontend-card-grad)" stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.7"/>
+        <rect x="20" y="16" width="320" height="24" rx="6" fill="#0ea5e9" fill-opacity="0.15"/>
+        <circle cx="36" cy="28" r="4" fill="#ef4444"/>
+        <circle cx="48" cy="28" r="4" fill="#eab308"/>
+        <circle cx="60" cy="28" r="4" fill="#22c55e"/>
+        <!-- Hero UI Box -->
+        <rect x="20" y="52" width="180" height="80" rx="8" fill="#0ea5e9" fill-opacity="0.2"/>
+        <rect x="35" y="70" width="100" height="12" rx="4" fill="#ffffff" fill-opacity="0.7"/>
+        <rect x="35" y="90" width="140" height="8" rx="3" fill="rgba(255,255,255,0.3)"/>
+        <rect x="35" y="104" width="70" height="14" rx="5" fill="#0ea5e9"/>
+        <!-- Cards Grid in Monitor -->
+        <rect x="215" y="52" width="125" height="38" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+        <rect x="215" y="94" width="125" height="38" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+        <!-- Bottom Row Content -->
+        <rect x="20" y="145" width="100" height="48" rx="6" fill="rgba(255,255,255,0.04)"/>
+        <rect x="130" y="145" width="100" height="48" rx="6" fill="rgba(255,255,255,0.04)"/>
+        <rect x="240" y="145" width="100" height="48" rx="6" fill="rgba(255,255,255,0.04)"/>
+        <!-- Stand Base -->
+        <path d="M 150 210 L 140 240 L 220 240 L 210 210 Z" fill="#0ea5e9" fill-opacity="0.3"/>
+      </g>
+
+      <!-- Tablet Viewport Frame -->
+      <g transform="translate(100, 180)">
+        <rect width="130" height="180" rx="12" fill="#0a0f24" stroke="#6366f1" stroke-width="1.5"/>
+        <circle cx="65" cy="15" r="3" fill="#6366f1" fill-opacity="0.6"/>
+        <rect x="12" y="28" width="106" height="45" rx="6" fill="#6366f1" fill-opacity="0.25"/>
+        <rect x="12" y="82" width="50" height="40" rx="4" fill="rgba(255,255,255,0.05)"/>
+        <rect x="68" y="82" width="50" height="40" rx="4" fill="rgba(255,255,255,0.05)"/>
+        <rect x="12" y="130" width="106" height="30" rx="4" fill="rgba(255,255,255,0.05)"/>
+      </g>
+
+      <!-- Mobile Viewport Frame -->
+      <g transform="translate(560, 150)">
+        <rect width="110" height="210" rx="16" fill="#0a0f24" stroke="#38bdf8" stroke-width="1.8"/>
+        <!-- Island cutout -->
+        <rect x="35" y="8" width="40" height="7" rx="3" fill="#000000"/>
+        <circle cx="68" cy="11" r="2" fill="#38bdf8"/>
+        <!-- Mobile Content -->
+        <rect x="10" y="24" width="90" height="50" rx="6" fill="#38bdf8" fill-opacity="0.2"/>
+        <rect x="10" y="82" width="90" height="32" rx="6" fill="rgba(255,255,255,0.06)"/>
+        <rect x="10" y="122" width="90" height="32" rx="6" fill="rgba(255,255,255,0.06)"/>
+        <rect x="10" y="162" width="90" height="32" rx="6" fill="rgba(255,255,255,0.06)"/>
+      </g>
+    
+</svg>

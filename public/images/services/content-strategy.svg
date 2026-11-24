@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="content-strategy-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d18"/>
+      <stop offset="50%" stop-color="#060810"/>
+      <stop offset="100%" stop-color="#04050a"/>
+    </linearGradient>
+
+    <!-- Ambient Glow Light Gradients -->
+    <radialGradient id="content-strategy-glow1" cx="35%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#14b8a6" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <radialGradient id="content-strategy-glow2" cx="70%" cy="75%" r="45%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#06b6d4" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="content-strategy-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+
+    <linearGradient id="content-strategy-card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.01"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="content-strategy-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="450" fill="url(#content-strategy-bg)"/>
+  <rect width="800" height="450" fill="url(#content-strategy-grid)"/>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="280" cy="180" r="280" fill="url(#content-strategy-glow1)"/>
+  <circle cx="560" cy="300" r="240" fill="url(#content-strategy-glow2)"/>
+
+  <!-- Top Accent Neon Bar -->
+  <rect x="0" y="0" width="800" height="3" fill="url(#content-strategy-accent)"/>
+
+  <!-- Corner Tech Reticle Lines -->
+  <path d="M 30 50 L 30 30 L 50 30" fill="none" stroke="#14b8a6" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 50 L 770 30 L 750 30" fill="none" stroke="#06b6d4" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 30 400 L 30 420 L 50 420" fill="none" stroke="#14b8a6" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 400 L 770 420 L 750 420" fill="none" stroke="#06b6d4" stroke-opacity="0.4" stroke-width="2"/>
+
+  <!-- Central Custom Artwork -->
+  
+      <!-- Strategic Roadmap & 4 Content Pillars -->
+      <g transform="translate(140, 80)">
+        <!-- 4 Content Pillar Pillars -->
+        <g transform="translate(0, 30)">
+          <rect width="105" height="180" rx="10" fill="#08101a" stroke="#14b8a6" stroke-width="1.5"/>
+          <rect x="12" y="15" width="80" height="14" rx="4" fill="#14b8a6" fill-opacity="0.4"/>
+          <rect x="12" y="45" width="80" height="8" rx="2" fill="rgba(255,255,255,0.2)"/>
+          <rect x="12" y="65" width="60" height="8" rx="2" fill="rgba(255,255,255,0.15)"/>
+          <circle cx="52" cy="125" r="22" fill="#14b8a6" fill-opacity="0.15"/>
+          <path d="M 45 125 L 50 130 L 62 118" stroke="#14b8a6" stroke-width="2.5" fill="none"/>
+        </g>
+
+        <g transform="translate(125, 0)">
+          <rect width="105" height="210" rx="10" fill="#08101a" stroke="#06b6d4" stroke-width="1.5"/>
+          <rect x="12" y="15" width="80" height="14" rx="4" fill="#06b6d4" fill-opacity="0.4"/>
+          <rect x="12" y="45" width="80" height="8" rx="2" fill="rgba(255,255,255,0.2)"/>
+          <rect x="12" y="65" width="60" height="8" rx="2" fill="rgba(255,255,255,0.15)"/>
+          <circle cx="52" cy="140" r="22" fill="#06b6d4" fill-opacity="0.15"/>
+          <path d="M 45 140 L 50 145 L 62 133" stroke="#06b6d4" stroke-width="2.5" fill="none"/>
+        </g>
+
+        <g transform="translate(250, 40)">
+          <rect width="105" height="170" rx="10" fill="#08101a" stroke="#2dd4bf" stroke-width="1.5"/>
+          <rect x="12" y="15" width="80" height="14" rx="4" fill="#2dd4bf" fill-opacity="0.4"/>
+          <rect x="12" y="45" width="80" height="8" rx="2" fill="rgba(255,255,255,0.2)"/>
+          <rect x="12" y="65" width="60" height="8" rx="2" fill="rgba(255,255,255,0.15)"/>
+          <circle cx="52" cy="120" r="22" fill="#2dd4bf" fill-opacity="0.15"/>
+          <path d="M 45 120 L 50 125 L 62 113" stroke="#2dd4bf" stroke-width="2.5" fill="none"/>
+        </g>
+
+        <g transform="translate(375, 15)">
+          <rect width="105" height="195" rx="10" fill="#08101a" stroke="#10b981" stroke-width="1.5"/>
+          <rect x="12" y="15" width="80" height="14" rx="4" fill="#10b981" fill-opacity="0.4"/>
+          <rect x="12" y="45" width="80" height="8" rx="2" fill="rgba(255,255,255,0.2)"/>
+          <rect x="12" y="65" width="60" height="8" rx="2" fill="rgba(255,255,255,0.15)"/>
+          <circle cx="52" cy="130" r="22" fill="#10b981" fill-opacity="0.15"/>
+          <path d="M 45 130 L 50 135 L 62 123" stroke="#10b981" stroke-width="2.5" fill="none"/>
+        </g>
+      </g>
+
+      <!-- Editorial Calendar Grid Milestone Line -->
+      <g transform="translate(140, 310)">
+        <rect width="480" height="40" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)"/>
+        <circle cx="60" cy="20" r="8" fill="#14b8a6"/>
+        <circle cx="180" cy="20" r="8" fill="#06b6d4"/>
+        <circle cx="300" cy="20" r="8" fill="#2dd4bf"/>
+        <circle cx="420" cy="20" r="8" fill="#10b981"/>
+        <line x1="68" y1="20" x2="172" y2="20" stroke="#14b8a6" stroke-width="2"/>
+        <line x1="188" y1="20" x2="292" y2="20" stroke="#06b6d4" stroke-width="2"/>
+        <line x1="308" y1="20" x2="412" y2="20" stroke="#2dd4bf" stroke-width="2"/>
+      </g>
+    
+</svg>

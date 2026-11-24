@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="ai-automation-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d18"/>
+      <stop offset="50%" stop-color="#060810"/>
+      <stop offset="100%" stop-color="#04050a"/>
+    </linearGradient>
+
+    <!-- Ambient Glow Light Gradients -->
+    <radialGradient id="ai-automation-glow1" cx="35%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <radialGradient id="ai-automation-glow2" cx="70%" cy="75%" r="45%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#06b6d4" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="ai-automation-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="50%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+
+    <linearGradient id="ai-automation-card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.01"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="ai-automation-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="450" fill="url(#ai-automation-bg)"/>
+  <rect width="800" height="450" fill="url(#ai-automation-grid)"/>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="280" cy="180" r="280" fill="url(#ai-automation-glow1)"/>
+  <circle cx="560" cy="300" r="240" fill="url(#ai-automation-glow2)"/>
+
+  <!-- Top Accent Neon Bar -->
+  <rect x="0" y="0" width="800" height="3" fill="url(#ai-automation-accent)"/>
+
+  <!-- Corner Tech Reticle Lines -->
+  <path d="M 30 50 L 30 30 L 50 30" fill="none" stroke="#a855f7" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 50 L 770 30 L 750 30" fill="none" stroke="#06b6d4" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 30 400 L 30 420 L 50 420" fill="none" stroke="#a855f7" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 400 L 770 420 L 750 420" fill="none" stroke="#06b6d4" stroke-opacity="0.4" stroke-width="2"/>
+
+  <!-- Central Custom Artwork -->
+  
+      <!-- Neural Mesh & Vector RAG Pipeline -->
+      <g transform="translate(200, 80)">
+        <!-- Neural Nodes -->
+        <circle cx="100" cy="80" r="16" fill="#a855f7" fill-opacity="0.3" stroke="#a855f7" stroke-width="2"/>
+        <circle cx="100" cy="180" r="16" fill="#a855f7" fill-opacity="0.3" stroke="#a855f7" stroke-width="2"/>
+        <circle cx="240" cy="50" r="18" fill="#c084fc" fill-opacity="0.4" stroke="#c084fc" stroke-width="2"/>
+        <circle cx="240" cy="130" r="22" fill="#06b6d4" fill-opacity="0.5" stroke="#06b6d4" stroke-width="2.5"/>
+        <circle cx="240" cy="210" r="18" fill="#c084fc" fill-opacity="0.4" stroke="#c084fc" stroke-width="2"/>
+        <circle cx="380" cy="90" r="18" fill="#a855f7" fill-opacity="0.3" stroke="#a855f7" stroke-width="2"/>
+        <circle cx="380" cy="170" r="18" fill="#a855f7" fill-opacity="0.3" stroke="#a855f7" stroke-width="2"/>
+
+        <!-- Connecting Synapse Lines -->
+        <path d="M 116 80 L 222 50 M 116 80 L 218 130 M 116 80 L 222 210" stroke="#a855f7" stroke-opacity="0.4" stroke-width="1.5"/>
+        <path d="M 116 180 L 222 50 M 116 180 L 218 130 M 116 180 L 222 210" stroke="#a855f7" stroke-opacity="0.4" stroke-width="1.5"/>
+        <path d="M 258 50 L 362 90 M 258 50 L 362 170" stroke="#c084fc" stroke-opacity="0.5" stroke-width="1.5"/>
+        <path d="M 262 130 L 362 90 M 262 130 L 362 170" stroke="#06b6d4" stroke-opacity="0.7" stroke-width="2"/>
+        <path d="M 258 210 L 362 90 M 258 210 L 362 170" stroke="#c084fc" stroke-opacity="0.5" stroke-width="1.5"/>
+
+        <!-- Central Sparkle Brain Icon -->
+        <circle cx="240" cy="130" r="8" fill="#ffffff"/>
+      </g>
+
+      <!-- n8n Workflow Automation Nodes -->
+      <g transform="translate(180, 310)">
+        <rect width="120" height="40" rx="8" fill="#080c1a" stroke="#a855f7" stroke-width="1.5"/>
+        <circle cx="25" cy="20" r="8" fill="#a855f7"/>
+        <rect x="42" y="16" width="60" height="8" rx="2" fill="rgba(255,255,255,0.4)"/>
+
+        <path d="M 120 20 L 160 20" stroke="#06b6d4" stroke-width="2" stroke-dasharray="3,3"/>
+
+        <rect x="160" y="0" width="120" height="40" rx="8" fill="#080c1a" stroke="#06b6d4" stroke-width="1.5"/>
+        <circle cx="185" cy="20" r="8" fill="#06b6d4"/>
+        <rect x="202" y="16" width="60" height="8" rx="2" fill="rgba(255,255,255,0.4)"/>
+
+        <path d="M 280 20 L 320 20" stroke="#10b981" stroke-width="2" stroke-dasharray="3,3"/>
+
+        <rect x="320" y="0" width="120" height="40" rx="8" fill="#080c1a" stroke="#10b981" stroke-width="1.5"/>
+        <circle cx="345" cy="20" r="8" fill="#10b981"/>
+        <rect x="362" y="16" width="60" height="8" rx="2" fill="rgba(255,255,255,0.4)"/>
+      </g>
+    
+</svg>

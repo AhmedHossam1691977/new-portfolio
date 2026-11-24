@@ -48,6 +48,40 @@ export const PERSONAL_INFO = {
   ],
 };
 
+export const EDUCATION = {
+  degree: 'Bachelor’s Degree in Computer Science',
+  institution: 'Al-Obour Higher Institute',
+  period: '2020 – 2024',
+};
+
+export const INTERNSHIP = {
+  title: 'Full Stack Developer Using MEARN Stack',
+  institution: 'Information Technology Institute (ITI), Zagazig Branch',
+  period: 'July 2025 – December 2025',
+  program: 'Intensive Training Program',
+  points: [
+    'React.js, Angular, Node.js, Express.js, and MongoDB.',
+    'Building Full Stack Web Applications.',
+    'RESTful APIs and Authentication.',
+    'Git, Postman, and Agile Methodologies.',
+  ],
+};
+
+export const COURSES = [
+  {
+    title: 'Front-End Developer',
+    institution: 'Route Academy',
+    period: 'May 2023 – September 2023',
+    badge: 'Frontend Track',
+  },
+  {
+    title: 'Back-End Developer',
+    institution: 'Route Academy',
+    period: 'October 2023 – March 2024',
+    badge: 'Backend Track',
+  },
+];
+
 export const EXPERIENCES: Experience[] = [
   {
     id: 'anmka',

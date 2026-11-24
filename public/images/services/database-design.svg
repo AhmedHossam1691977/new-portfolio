@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="database-design-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d18"/>
+      <stop offset="50%" stop-color="#060810"/>
+      <stop offset="100%" stop-color="#04050a"/>
+    </linearGradient>
+
+    <!-- Ambient Glow Light Gradients -->
+    <radialGradient id="database-design-glow1" cx="35%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <radialGradient id="database-design-glow2" cx="70%" cy="75%" r="45%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#0284c7" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="database-design-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <linearGradient id="database-design-card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.01"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="database-design-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="450" fill="url(#database-design-bg)"/>
+  <rect width="800" height="450" fill="url(#database-design-grid)"/>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="280" cy="180" r="280" fill="url(#database-design-glow1)"/>
+  <circle cx="560" cy="300" r="240" fill="url(#database-design-glow2)"/>
+
+  <!-- Top Accent Neon Bar -->
+  <rect x="0" y="0" width="800" height="3" fill="url(#database-design-accent)"/>
+
+  <!-- Corner Tech Reticle Lines -->
+  <path d="M 30 50 L 30 30 L 50 30" fill="none" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 50 L 770 30 L 750 30" fill="none" stroke="#0284c7" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 30 400 L 30 420 L 50 420" fill="none" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 400 L 770 420 L 750 420" fill="none" stroke="#0284c7" stroke-opacity="0.4" stroke-width="2"/>
+
+  <!-- Central Custom Artwork -->
+  
+      <!-- Relational ERD & Data Schema Architecture -->
+      <g transform="translate(140, 100)">
+        <!-- Table 1: Users -->
+        <rect width="150" height="120" rx="8" fill="#081020" stroke="#38bdf8" stroke-width="1.5"/>
+        <rect width="150" height="28" rx="8" fill="#38bdf8" fill-opacity="0.25"/>
+        <rect x="15" y="10" width="60" height="8" rx="3" fill="#38bdf8"/>
+        <text x="15" y="50" fill="#38bdf8" font-family="monospace" font-size="10">PK id: UUID</text>
+        <text x="15" y="70" fill="rgba(255,255,255,0.7)" font-family="monospace" font-size="10">email: VARCHAR</text>
+        <text x="15" y="90" fill="rgba(255,255,255,0.7)" font-family="monospace" font-size="10">role: ENUM</text>
+        <text x="15" y="110" fill="rgba(255,255,255,0.5)" font-family="monospace" font-size="10">created_at: TS</text>
+      </g>
+
+      <g transform="translate(360, 70)">
+        <!-- Table 2: Orders -->
+        <rect width="160" height="135" rx="8" fill="#081020" stroke="#06b6d4" stroke-width="1.5"/>
+        <rect width="160" height="28" rx="8" fill="#06b6d4" fill-opacity="0.25"/>
+        <rect x="15" y="10" width="60" height="8" rx="3" fill="#06b6d4"/>
+        <text x="15" y="50" fill="#06b6d4" font-family="monospace" font-size="10">PK id: UUID</text>
+        <text x="15" y="70" fill="#38bdf8" font-family="monospace" font-size="10">FK user_id: UUID</text>
+        <text x="15" y="90" fill="rgba(255,255,255,0.7)" font-family="monospace" font-size="10">amount: DECIMAL</text>
+        <text x="15" y="110" fill="rgba(255,255,255,0.7)" font-family="monospace" font-size="10">status: VARCHAR</text>
+        <text x="15" y="125" fill="rgba(255,255,255,0.5)" font-family="monospace" font-size="10">items: JSONB</text>
+      </g>
+
+      <g transform="translate(240, 240)">
+        <!-- Table 3: Products / Inventory -->
+        <rect width="160" height="120" rx="8" fill="#081020" stroke="#10b981" stroke-width="1.5"/>
+        <rect width="160" height="28" rx="8" fill="#10b981" fill-opacity="0.25"/>
+        <rect x="15" y="10" width="70" height="8" rx="3" fill="#10b981"/>
+        <text x="15" y="50" fill="#10b981" font-family="monospace" font-size="10">PK product_id</text>
+        <text x="15" y="70" fill="rgba(255,255,255,0.7)" font-family="monospace" font-size="10">title: TEXT</text>
+        <text x="15" y="90" fill="rgba(255,255,255,0.7)" font-family="monospace" font-size="10">stock: INT</text>
+        <text x="15" y="110" fill="rgba(255,255,255,0.5)" font-family="monospace" font-size="10">indexed_btree</text>
+      </g>
+
+      <!-- 3D Database Cylinder Cylinder Array -->
+      <g transform="translate(560, 160)">
+        <ellipse cx="60" cy="30" rx="50" ry="16" fill="#38bdf8" fill-opacity="0.3" stroke="#38bdf8" stroke-width="2"/>
+        <path d="M 10 30 L 10 70 A 50 16 0 0 0 110 70 L 110 30" fill="#0a1224" stroke="#38bdf8" stroke-width="2"/>
+        <path d="M 10 70 L 10 110 A 50 16 0 0 0 110 110 L 110 70" fill="#0a1224" stroke="#38bdf8" stroke-width="2"/>
+        <path d="M 10 110 L 10 150 A 50 16 0 0 0 110 150 L 110 110" fill="#0a1224" stroke="#38bdf8" stroke-width="2"/>
+      </g>
+
+      <!-- Entity Relationship Connectors -->
+      <path d="M 290 160 L 360 140" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)"/>
+      <path d="M 440 205 L 360 240" stroke="#06b6d4" stroke-width="2" stroke-dasharray="4,4"/>
+    
+</svg>

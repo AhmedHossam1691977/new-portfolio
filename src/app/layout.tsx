@@ -48,7 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} dark`}>
-      <body className="antialiased bg-[#050609] text-gray-100 selection:bg-cyan-500/30 selection:text-white transition-colors duration-300">
+      <body className="antialiased transition-colors duration-400">
         <AppProvider>
           <Preloader />
           <SmoothScroll>

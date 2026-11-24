@@ -21,22 +21,35 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
-    setTheme('dark');
-    setLang('en');
-    localStorage.removeItem('portfolio_theme');
-    localStorage.removeItem('portfolio_lang');
 
-    // Apply classes and attributes
-    document.documentElement.classList.remove('light');
-    document.documentElement.classList.add('dark');
+    // Restore saved theme or default to dark
+    const saved = localStorage.getItem('portfolio_theme') as Theme | null;
+    const initial = saved === 'light' ? 'light' : 'dark';
+    setTheme(initial);
+    applyTheme(initial);
+
+    // Language defaults
+    setLang('en');
     document.documentElement.setAttribute('dir', 'ltr');
     document.documentElement.setAttribute('lang', 'en');
   }, []);
 
+  const applyTheme = (t: Theme) => {
+    const root = document.documentElement;
+    if (t === 'dark') {
+      root.classList.remove('light');
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+      root.classList.add('light');
+    }
+  };
+
   const toggleTheme = () => {
-    setTheme('dark');
-    document.documentElement.classList.remove('light');
-    document.documentElement.classList.add('dark');
+    const next = theme === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    applyTheme(next);
+    localStorage.setItem('portfolio_theme', next);
   };
 
   const toggleLang = () => {

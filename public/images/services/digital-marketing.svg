@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="digital-marketing-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d18"/>
+      <stop offset="50%" stop-color="#060810"/>
+      <stop offset="100%" stop-color="#04050a"/>
+    </linearGradient>
+
+    <!-- Ambient Glow Light Gradients -->
+    <radialGradient id="digital-marketing-glow1" cx="35%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#f97316" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <radialGradient id="digital-marketing-glow2" cx="70%" cy="75%" r="45%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#06b6d4" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="digital-marketing-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="50%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+
+    <linearGradient id="digital-marketing-card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.01"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="digital-marketing-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="450" fill="url(#digital-marketing-bg)"/>
+  <rect width="800" height="450" fill="url(#digital-marketing-grid)"/>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="280" cy="180" r="280" fill="url(#digital-marketing-glow1)"/>
+  <circle cx="560" cy="300" r="240" fill="url(#digital-marketing-glow2)"/>
+
+  <!-- Top Accent Neon Bar -->
+  <rect x="0" y="0" width="800" height="3" fill="url(#digital-marketing-accent)"/>
+
+  <!-- Corner Tech Reticle Lines -->
+  <path d="M 30 50 L 30 30 L 50 30" fill="none" stroke="#f97316" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 50 L 770 30 L 750 30" fill="none" stroke="#06b6d4" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 30 400 L 30 420 L 50 420" fill="none" stroke="#f97316" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 400 L 770 420 L 750 420" fill="none" stroke="#06b6d4" stroke-opacity="0.4" stroke-width="2"/>
+
+  <!-- Central Custom Artwork -->
+  
+      <!-- Full-Funnel Digital Marketing Engine -->
+      <g transform="translate(180, 80)">
+        <!-- Top Funnel Wide (Acquisition) -->
+        <polygon points="40,20 400,20 340,80 100,80" fill="#f97316" fill-opacity="0.3" stroke="#f97316" stroke-width="2"/>
+        <!-- Mid Funnel (Consideration) -->
+        <polygon points="105,90 335,90 285,150 155,150" fill="#fb923c" fill-opacity="0.3" stroke="#fb923c" stroke-width="2"/>
+        <!-- Bottom Funnel (Conversion) -->
+        <polygon points="160,160 280,160 240,220 200,220" fill="#06b6d4" fill-opacity="0.4" stroke="#06b6d4" stroke-width="2"/>
+        <!-- Retention Goal -->
+        <circle cx="220" cy="255" r="22" fill="#22c55e" fill-opacity="0.4" stroke="#22c55e" stroke-width="2"/>
+        <path d="M 212 255 L 218 261 L 230 248" fill="none" stroke="#22c55e" stroke-width="3"/>
+      </g>
+
+      <!-- Channels Inflow Badges -->
+      <g transform="translate(100, 120)">
+        <circle cx="30" cy="30" r="20" fill="#0a1024" stroke="#f97316" stroke-width="1.5"/>
+        <circle cx="30" cy="100" r="20" fill="#0a1024" stroke="#06b6d4" stroke-width="1.5"/>
+        <circle cx="30" cy="170" r="20" fill="#0a1024" stroke="#8b5cf6" stroke-width="1.5"/>
+      </g>
+
+      <g transform="translate(640, 120)">
+        <circle cx="30" cy="30" r="20" fill="#0a1024" stroke="#22c55e" stroke-width="1.5"/>
+        <circle cx="30" cy="100" r="20" fill="#0a1024" stroke="#fbbf24" stroke-width="1.5"/>
+        <circle cx="30" cy="170" r="20" fill="#0a1024" stroke="#ec4899" stroke-width="1.5"/>
+      </g>
+    
+</svg>

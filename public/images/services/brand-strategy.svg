@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="brand-strategy-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d18"/>
+      <stop offset="50%" stop-color="#060810"/>
+      <stop offset="100%" stop-color="#04050a"/>
+    </linearGradient>
+
+    <!-- Ambient Glow Light Gradients -->
+    <radialGradient id="brand-strategy-glow1" cx="35%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#eab308" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#eab308" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <radialGradient id="brand-strategy-glow2" cx="70%" cy="75%" r="45%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#f97316" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="brand-strategy-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#eab308"/>
+      <stop offset="50%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+
+    <linearGradient id="brand-strategy-card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.01"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="brand-strategy-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="450" fill="url(#brand-strategy-bg)"/>
+  <rect width="800" height="450" fill="url(#brand-strategy-grid)"/>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="280" cy="180" r="280" fill="url(#brand-strategy-glow1)"/>
+  <circle cx="560" cy="300" r="240" fill="url(#brand-strategy-glow2)"/>
+
+  <!-- Top Accent Neon Bar -->
+  <rect x="0" y="0" width="800" height="3" fill="url(#brand-strategy-accent)"/>
+
+  <!-- Corner Tech Reticle Lines -->
+  <path d="M 30 50 L 30 30 L 50 30" fill="none" stroke="#eab308" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 50 L 770 30 L 750 30" fill="none" stroke="#f97316" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 30 400 L 30 420 L 50 420" fill="none" stroke="#eab308" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 400 L 770 420 L 750 420" fill="none" stroke="#f97316" stroke-opacity="0.4" stroke-width="2"/>
+
+  <!-- Central Custom Artwork -->
+  
+      <!-- Golden Ratio Geometric Brand Emblem & Compass -->
+      <g transform="translate(180, 80)">
+        <!-- Golden Ratio Intersecting Concentric Circles -->
+        <circle cx="150" cy="140" r="110" fill="none" stroke="#eab308" stroke-width="1.5" stroke-opacity="0.4"/>
+        <circle cx="150" cy="140" r="68" fill="none" stroke="#eab308" stroke-width="2" stroke-opacity="0.6"/>
+        <circle cx="150" cy="140" r="42" fill="none" stroke="#f97316" stroke-width="2"/>
+        <circle cx="150" cy="140" r="26" fill="#eab308" fill-opacity="0.3"/>
+
+        <!-- Compass Axis Crosshair -->
+        <line x1="150" y1="10" x2="150" y2="270" stroke="#eab308" stroke-width="1" stroke-dasharray="5,5"/>
+        <line x1="20" y1="140" x2="280" y2="140" stroke="#eab308" stroke-width="1" stroke-dasharray="5,5"/>
+
+        <polygon points="150,85 165,140 150,130 135,140" fill="#eab308"/>
+        <polygon points="150,195 165,140 150,150 135,140" fill="#f97316"/>
+      </g>
+
+      <!-- Brand Guidelines Palette Book -->
+      <g transform="translate(470, 95)">
+        <rect width="180" height="230" rx="12" fill="#0b0e1a" stroke="#eab308" stroke-width="1.5"/>
+        <rect x="20" y="20" width="80" height="12" rx="3" fill="#eab308" fill-opacity="0.6"/>
+        
+        <!-- Swatches -->
+        <rect x="20" y="50" width="30" height="30" rx="6" fill="#eab308"/>
+        <rect x="58" y="50" width="30" height="30" rx="6" fill="#f97316"/>
+        <rect x="96" y="50" width="30" height="30" rx="6" fill="#0a0d18" stroke="rgba(255,255,255,0.3)"/>
+        <rect x="134" y="50" width="26" height="30" rx="6" fill="#ffffff"/>
+
+        <!-- Typography specimen wireframes -->
+        <rect x="20" y="100" width="140" height="16" rx="4" fill="rgba(255,255,255,0.7)"/>
+        <rect x="20" y="125" width="120" height="10" rx="3" fill="rgba(255,255,255,0.3)"/>
+        <rect x="20" y="145" width="140" height="8" rx="2" fill="rgba(255,255,255,0.2)"/>
+        <rect x="20" y="160" width="100" height="8" rx="2" fill="rgba(255,255,255,0.2)"/>
+        <rect x="20" y="185" width="140" height="25" rx="6" fill="#eab308" fill-opacity="0.2"/>
+      </g>
+    
+</svg>

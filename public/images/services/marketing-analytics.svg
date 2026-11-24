@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="marketing-analytics-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d18"/>
+      <stop offset="50%" stop-color="#060810"/>
+      <stop offset="100%" stop-color="#04050a"/>
+    </linearGradient>
+
+    <!-- Ambient Glow Light Gradients -->
+    <radialGradient id="marketing-analytics-glow1" cx="35%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <radialGradient id="marketing-analytics-glow2" cx="70%" cy="75%" r="45%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#3b82f6" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="marketing-analytics-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+
+    <linearGradient id="marketing-analytics-card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.01"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="marketing-analytics-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="450" fill="url(#marketing-analytics-bg)"/>
+  <rect width="800" height="450" fill="url(#marketing-analytics-grid)"/>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="280" cy="180" r="280" fill="url(#marketing-analytics-glow1)"/>
+  <circle cx="560" cy="300" r="240" fill="url(#marketing-analytics-glow2)"/>
+
+  <!-- Top Accent Neon Bar -->
+  <rect x="0" y="0" width="800" height="3" fill="url(#marketing-analytics-accent)"/>
+
+  <!-- Corner Tech Reticle Lines -->
+  <path d="M 30 50 L 30 30 L 50 30" fill="none" stroke="#06b6d4" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 50 L 770 30 L 750 30" fill="none" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 30 400 L 30 420 L 50 420" fill="none" stroke="#06b6d4" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M 770 400 L 770 420 L 750 420" fill="none" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="2"/>
+
+  <!-- Central Custom Artwork -->
+  
+      <!-- Real-Time Marketing Telemetry & Multi-Touch Attribution -->
+      <g transform="translate(140, 75)">
+        <rect width="520" height="280" rx="14" fill="#070c18" stroke="#06b6d4" stroke-width="1.5"/>
+
+        <!-- KPI Header Meters -->
+        <rect x="25" y="20" width="140" height="50" rx="8" fill="#06b6d4" fill-opacity="0.1" stroke="#06b6d4" stroke-opacity="0.3"/>
+        <rect x="40" y="32" width="50" height="6" rx="2" fill="rgba(255,255,255,0.3)"/>
+        <text x="40" y="58" fill="#38bdf8" font-family="monospace" font-size="16" font-weight="bold">94.8%</text>
+
+        <rect x="190" y="20" width="140" height="50" rx="8" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-opacity="0.3"/>
+        <rect x="205" y="32" width="50" height="6" rx="2" fill="rgba(255,255,255,0.3)"/>
+        <text x="205" y="58" fill="#60a5fa" font-family="monospace" font-size="16" font-weight="bold">$48.2k</text>
+
+        <rect x="355" y="20" width="140" height="50" rx="8" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-opacity="0.3"/>
+        <rect x="370" y="32" width="50" height="6" rx="2" fill="rgba(255,255,255,0.3)"/>
+        <text x="370" y="58" fill="#34d399" font-family="monospace" font-size="16" font-weight="bold">3.4x</text>
+
+        <!-- Multi-Metric Analytics Line Chart -->
+        <g transform="translate(25, 90)">
+          <rect width="470" height="165" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
+          <line x1="20" y1="135" x2="450" y2="135" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          
+          <!-- Curve 1: Conversions (Cyan) -->
+          <path d="M 20 120 Q 90 90, 150 100 T 260 60 T 360 40 T 440 20 L 440 135 L 20 135 Z" fill="#06b6d4" fill-opacity="0.12"/>
+          <path d="M 20 120 Q 90 90, 150 100 T 260 60 T 360 40 T 440 20" fill="none" stroke="#06b6d4" stroke-width="3"/>
+          <circle cx="150" cy="100" r="4" fill="#06b6d4"/>
+          <circle cx="260" cy="60" r="4" fill="#06b6d4"/>
+          <circle cx="360" cy="40" r="4" fill="#06b6d4"/>
+          <circle cx="440" cy="20" r="5" fill="#38bdf8"/>
+
+          <!-- Curve 2: Acquisition Volume (Blue) -->
+          <path d="M 20 100 Q 80 120, 160 85 T 270 95 T 370 70 T 440 50" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,4"/>
+        </g>
+      </g>
+    
+</svg>

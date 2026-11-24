@@ -8,6 +8,7 @@ import { Cinzel_Decorative } from 'next/font/google';
 import { PERSONAL_INFO } from '@/data/portfolioData';
 import { Mail, Phone, MapPin, Copy, Check, Send, Sparkles, ArrowUp, MessageSquare, Loader2 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/SocialIcons';
+import { useApp } from '@/context/AppContext';
 
 const cinzel = Cinzel_Decorative({
   weight: ['400', '700', '900'],
@@ -21,6 +22,8 @@ if (typeof window !== 'undefined') {
 }
 
 export default function ContactSection() {
+  const { theme } = useApp();
+  const isDark = theme === 'dark';
   const containerRef = useRef<HTMLDivElement>(null);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
@@ -75,15 +78,83 @@ export default function ContactSection() {
     setIsSubmitting(true);
     setErrorMsg('');
 
+    let isDelivered = false;
+
+    // 1. Primary: Direct submission via Web3Forms API
     try {
-      const res = await fetch('/api/contact', {
+      const w3Res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formState),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'eb8be1fb-27e1-454a-a71c-43f7215f9b4c',
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+          subject: `📬 New Message from ${formState.name} (Portfolio)`,
+          from_name: 'Ahmed Hossam Portfolio',
+        }),
       });
 
-      const data = await res.json();
+      const w3Data = await w3Res.json();
+      if (w3Data && w3Data.success) {
+        isDelivered = true;
+      }
+    } catch (err) {
+      console.warn('Web3Forms client attempt notice:', err);
+    }
 
+    // 2. Secondary: Direct submission via FormSubmit to ahmedhossam1691977@gmail.com
+    if (!isDelivered) {
+      try {
+        const fsRes = await fetch('https://formsubmit.co/ajax/ahmedhossam1691977@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: formState.name,
+            email: formState.email,
+            message: formState.message,
+            _subject: `📬 New Portfolio Message from ${formState.name}`,
+            _template: 'table',
+            _captcha: 'false',
+          }),
+        });
+
+        const fsData = await fsRes.json();
+        if (
+          fsData &&
+          (fsData.success === 'true' || fsData.success === true || fsData.message)
+        ) {
+          isDelivered = true;
+        }
+      } catch (err) {
+        console.warn('FormSubmit client attempt notice:', err);
+      }
+    }
+
+    // 3. Tertiary: Local Next.js API route
+    if (!isDelivered) {
+      try {
+        const apiRes = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formState),
+        });
+        const apiData = await apiRes.json();
+        if (apiData && apiData.success) {
+          isDelivered = true;
+        }
+      } catch (err) {
+        console.warn('Internal API route attempt notice:', err);
+      }
+    }
+
+    if (isDelivered) {
       setSubmitted(true);
       confetti({
         particleCount: 100,
@@ -91,40 +162,19 @@ export default function ContactSection() {
         origin: { y: 0.7 },
         colors: ['#06b6d4', '#10b981', '#8b5cf6'],
       });
-
-      if (data?.fallback) {
-        window.open(
-          `mailto:${PERSONAL_INFO.email}?subject=New Portfolio Message from ${encodeURIComponent(
-            formState.name
-          )}&body=${encodeURIComponent(formState.message)}`
-        );
-      }
-
       setTimeout(() => {
         setSubmitted(false);
         setFormState({ name: '', email: '', message: '' });
-      }, 5000);
-    } catch (err) {
-      console.error('Contact Form Error:', err);
-      setSubmitted(true);
-      confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.7 },
-        colors: ['#06b6d4', '#10b981', '#8b5cf6'],
-      });
-      window.open(
-        `mailto:${PERSONAL_INFO.email}?subject=New Portfolio Message from ${encodeURIComponent(
-          formState.name
-        )}&body=${encodeURIComponent(formState.message)}`
-      );
-      setTimeout(() => {
-        setSubmitted(false);
-        setFormState({ name: '', email: '', message: '' });
-      }, 5000);
-    } finally {
-      setIsSubmitting(false);
+      }, 6000);
+    } else {
+      // Fallback: If network blocked all APIs, open mailto directly
+      setErrorMsg('Could not connect to email service. Opening your email app instead...');
+      window.location.href = `mailto:${PERSONAL_INFO.email}?subject=New Portfolio Message from ${encodeURIComponent(
+        formState.name
+      )}&body=${encodeURIComponent(formState.message)}`;
     }
+
+    setIsSubmitting(false);
   };
 
   const scrollToTop = () => {
@@ -135,7 +185,7 @@ export default function ContactSection() {
     <footer
       id="contact"
       ref={containerRef}
-      className={`relative pt-28 pb-12 bg-[#050609] overflow-hidden ${cinzel.variable}`}
+      className={`relative pt-28 pb-12 theme-bg overflow-hidden ${cinzel.variable}`}
     >
       {/* Background Ambient Orbs */}
       <div className="absolute bottom-0 left-1/3 w-[500px] h-[500px] bg-cyan-600/15 rounded-full blur-[160px] pointer-events-none" />
@@ -150,14 +200,14 @@ export default function ContactSection() {
             <span>DIRECT REAL-TIME EMAIL DELIVERY</span>
           </div>
 
-          <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
+          <h2 className={`text-4xl sm:text-6xl font-black tracking-tight leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
             Let's Build Something <br className="hidden sm:block" />
             <span className="text-gradient-cyan drop-shadow-[0_0_35px_rgba(6,182,212,0.4)]">
               Exceptional Together
             </span>
           </h2>
 
-          <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+          <p className={`text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
             Send a direct message below and it will arrive straight into Ahmed Hossam's email inbox!
           </p>
         </div>
@@ -169,7 +219,7 @@ export default function ContactSection() {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Email Copy Card */}
-            <div className="glass-panel p-6 rounded-3xl border border-white/15 space-y-3 relative group bg-gradient-to-br from-[#0c0f20]/90 to-[#070912]/95 shadow-xl hover:border-cyan-500/40 transition-all">
+            <div className={`glass-panel p-6 rounded-3xl border space-y-3 relative group shadow-xl hover:border-cyan-500/40 transition-all ${isDark ? 'border-white/15 bg-gradient-to-br from-[#0c0f20]/90 to-[#070912]/95' : 'border-gray-200 bg-white'}`}>
               <div className="flex items-center justify-between text-xs font-mono text-cyan-400">
                 <span className="flex items-center gap-2">
                   <Mail className="w-4 h-4" /> Direct Email Inbox
@@ -180,7 +230,7 @@ export default function ContactSection() {
               <div className="flex items-center justify-between gap-2">
                 <a
                   href={`mailto:${PERSONAL_INFO.email}`}
-                  className="text-base sm:text-lg font-mono font-bold text-white hover:text-cyan-300 transition-colors truncate"
+                  className={`text-base sm:text-lg font-mono font-bold hover:text-cyan-300 transition-colors truncate ${isDark ? 'text-white' : 'text-gray-900'}`}
                 >
                   {PERSONAL_INFO.email}
                 </a>
@@ -196,7 +246,7 @@ export default function ContactSection() {
             </div>
 
             {/* Phone & WhatsApp Card */}
-            <div className="glass-panel p-6 rounded-3xl border border-white/15 space-y-3 bg-gradient-to-br from-[#0c0f20]/90 to-[#070912]/95 shadow-xl hover:border-emerald-500/40 transition-all">
+            <div className={`glass-panel p-6 rounded-3xl border space-y-3 shadow-xl hover:border-emerald-500/40 transition-all ${isDark ? 'border-white/15 bg-gradient-to-br from-[#0c0f20]/90 to-[#070912]/95' : 'border-gray-200 bg-white'}`}>
               <div className="flex items-center justify-between text-xs font-mono text-emerald-400">
                 <span className="flex items-center gap-2">
                   <Phone className="w-4 h-4" /> Direct Phone / WhatsApp
@@ -209,7 +259,7 @@ export default function ContactSection() {
                   href={`https://wa.me/${PERSONAL_INFO.phone.replace(/[^0-9]/g, '')}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-base sm:text-lg font-mono font-bold text-white hover:text-emerald-300 transition-colors"
+                  className={`text-base sm:text-lg font-mono font-bold hover:text-emerald-300 transition-colors ${isDark ? 'text-white' : 'text-gray-900'}`}
                 >
                   {PERSONAL_INFO.phone}
                 </a>
@@ -224,14 +274,14 @@ export default function ContactSection() {
             </div>
 
             {/* Location & Social Profiles */}
-            <div className="glass-panel p-6 rounded-3xl border border-white/15 space-y-4 bg-gradient-to-br from-[#0c0f20]/90 to-[#070912]/95 shadow-xl">
+            <div className={`glass-panel p-6 rounded-3xl border space-y-4 shadow-xl ${isDark ? 'border-white/15 bg-gradient-to-br from-[#0c0f20]/90 to-[#070912]/95' : 'border-gray-200 bg-white'}`}>
               <div className="flex items-center gap-3 text-sm text-gray-300">
                 <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
                   <MapPin className="w-4 h-4 text-cyan-400" />
                 </div>
                 <div>
                   <div className="text-xs font-mono text-gray-400">Location</div>
-                  <div className="font-bold text-white">{PERSONAL_INFO.location}</div>
+                  <div className={`font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>{PERSONAL_INFO.location}</div>
                 </div>
               </div>
 
@@ -260,8 +310,8 @@ export default function ContactSection() {
           </div>
 
           {/* Right Column: Live Email Form */}
-          <div className="lg:col-span-7 glass-panel p-8 sm:p-10 rounded-3xl border border-white/15 space-y-6 bg-gradient-to-br from-[#0a0d1a]/95 to-[#070912]/98 shadow-2xl">
-            <h3 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-3">
+          <div className={`lg:col-span-7 glass-panel p-8 sm:p-10 rounded-3xl border space-y-6 shadow-2xl ${isDark ? 'border-white/15 bg-gradient-to-br from-[#0a0d1a]/95 to-[#070912]/98' : 'border-gray-200 bg-white'}`}>
+            <h3 className={`text-xl sm:text-2xl font-extrabold flex items-center gap-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>
               <MessageSquare className="w-5 h-5 text-cyan-400" />
               <span>Send Me a Direct Message</span>
             </h3>
@@ -284,38 +334,50 @@ export default function ContactSection() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-gray-300">Your Name</label>
+                    <label className={`text-xs font-mono font-medium ${isDark ? 'text-gray-300' : 'text-slate-700'}`}>Your Name</label>
                     <input
                       type="text"
                       required
                       value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                       placeholder="Ahmed Hossam"
-                      className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-sm text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                      className={`w-full px-4 py-3.5 rounded-xl border text-sm focus:outline-none focus:border-cyan-500 transition-colors ${
+                        isDark
+                          ? 'bg-white/5 border-white/10 text-white placeholder:text-gray-500'
+                          : 'bg-slate-50 border-slate-300 text-slate-900 placeholder:text-slate-400'
+                      }`}
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-gray-300">Your Email</label>
+                    <label className={`text-xs font-mono font-medium ${isDark ? 'text-gray-300' : 'text-slate-700'}`}>Your Email</label>
                     <input
                       type="email"
                       required
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                       placeholder="you@example.com"
-                      className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-sm text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                      className={`w-full px-4 py-3.5 rounded-xl border text-sm focus:outline-none focus:border-cyan-500 transition-colors ${
+                        isDark
+                          ? 'bg-white/5 border-white/10 text-white placeholder:text-gray-500'
+                          : 'bg-slate-50 border-slate-300 text-slate-900 placeholder:text-slate-400'
+                      }`}
                     />
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-mono text-gray-300">Message</label>
+                  <label className={`text-xs font-mono font-medium ${isDark ? 'text-gray-300' : 'text-slate-700'}`}>Message</label>
                   <textarea
                     rows={4}
                     required
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                     placeholder="Hello Ahmed, I'd like to discuss a project..."
-                    className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-sm text-white focus:outline-none focus:border-cyan-400 transition-colors resize-none"
+                    className={`w-full px-4 py-3.5 rounded-xl border text-sm focus:outline-none focus:border-cyan-500 transition-colors resize-none ${
+                      isDark
+                        ? 'bg-white/5 border-white/10 text-white placeholder:text-gray-500'
+                        : 'bg-slate-50 border-slate-300 text-slate-900 placeholder:text-slate-400'
+                    }`}
                   />
                 </div>
 
@@ -343,7 +405,7 @@ export default function ContactSection() {
         </div>
 
         {/* Footer Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-gray-400">
+        <div className={`pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono ${isDark ? 'border-white/10 text-gray-400' : 'border-gray-200 text-gray-500'}`}>
           <div>
             © {new Date().getFullYear()}{' '}
             <span

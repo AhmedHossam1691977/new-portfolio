@@ -127,12 +127,12 @@ export default function ServicesSection() {
         </div>
 
         {/* ========================================================= */}
-        {/* CONTROLS: CATEGORY TABS & SEARCH INPUT                    */}
+        {/* CONTROLS: CATEGORY TABS & SEARCH INPUT (CENTERED)         */}
         {/* ========================================================= */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-12">
+        <div className="flex flex-col items-center justify-center gap-4 mb-12">
           {/* Category Tabs */}
           <div
-            className={`flex items-center p-1.5 rounded-2xl border transition-all ${
+            className={`inline-flex items-center p-1.5 rounded-2xl border transition-all ${
               isDark
                 ? 'bg-slate-900/80 border-slate-800/90 shadow-inner'
                 : 'bg-white border-slate-200 shadow-sm'
@@ -140,7 +140,7 @@ export default function ServicesSection() {
           >
             <button
               onClick={() => setActiveTab('tech')}
-              className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
+              className={`flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
                 activeTab === 'tech'
                   ? isDark
                     ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-sm'
@@ -169,7 +169,7 @@ export default function ServicesSection() {
 
             <button
               onClick={() => setActiveTab('marketing')}
-              className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
+              className={`flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
                 activeTab === 'marketing'
                   ? isDark
                     ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-sm'
@@ -198,7 +198,7 @@ export default function ServicesSection() {
           </div>
 
           {/* Search Box */}
-          <div className="relative w-full md:w-80">
+          <div className="relative w-full max-w-md">
             <Search
               className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 ${
                 isDark ? 'text-slate-400' : 'text-slate-500'
@@ -230,7 +230,7 @@ export default function ServicesSection() {
         {/* Results summary if searching */}
         {searchQuery && (
           <p
-            className={`text-sm mb-6 ${
+            className={`text-sm mb-6 text-center ${
               isDark ? 'text-slate-400' : 'text-slate-600'
             }`}
           >

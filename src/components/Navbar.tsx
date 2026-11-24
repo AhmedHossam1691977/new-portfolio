@@ -137,15 +137,47 @@ export default function Navbar() {
         </div>
       </header>
 
+      {/* 📱 MOBILE TOP STATUS BAR (HEADER) */}
+      <div className="md:hidden fixed top-3 left-0 right-0 z-[9990] px-4 flex items-center justify-between pointer-events-none">
+        {/* Brand Chip */}
+        <a
+          href="#hero"
+          onClick={() => setActiveSection('hero')}
+          className={`pointer-events-auto flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-xl border shadow-lg transition-all active:scale-95 ${
+            isDark
+              ? 'bg-[#060a14]/85 border-white/10 text-white'
+              : 'bg-white/90 border-slate-200 text-slate-900 shadow-sm'
+          }`}
+        >
+          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+          <span className="text-[11px] font-mono font-bold tracking-wider uppercase">
+            Ahmed.dev
+          </span>
+        </a>
+
+        {/* Mobile Theme Switcher */}
+        <button
+          onClick={toggleTheme}
+          className={`pointer-events-auto p-2 rounded-full backdrop-blur-xl border shadow-lg transition-all active:scale-90 ${
+            isDark
+              ? 'bg-[#060a14]/85 border-white/10 text-yellow-400'
+              : 'bg-white/90 border-slate-200 text-slate-700 shadow-sm'
+          }`}
+          aria-label="Toggle theme"
+        >
+          {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+        </button>
+      </div>
+
       {/* 📱 MOBILE NATIVE APP DOCK NAVBAR (BOTTOM) */}
       <nav
-        className={`md:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-[9990] w-[94vw] max-w-md px-2 py-2 rounded-3xl border shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-2xl ${cinzel.variable} ${
+        className={`md:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-[9990] w-[95vw] max-w-sm px-1.5 py-1.5 rounded-2xl border shadow-[0_16px_40px_rgba(0,0,0,0.6)] backdrop-blur-2xl transition-all duration-300 ${
           isDark
-            ? 'glass-panel border-cyan-500/30 bg-[#070a14]/95'
-            : 'bg-white/90 border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.1)]'
+            ? 'bg-[#070b16]/95 border-slate-800'
+            : 'bg-white/95 border-slate-200 shadow-[0_10px_30px_rgba(0,0,0,0.12)]'
         }`}
       >
-        <div className="flex items-center justify-around w-full">
+        <div className="grid grid-cols-6 items-center w-full">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             const Icon = link.icon;
@@ -155,61 +187,37 @@ export default function Navbar() {
                 key={link.id}
                 href={link.href}
                 onClick={() => setActiveSection(link.id)}
-                className={`relative flex flex-col items-center gap-1 px-2.5 py-1.5 rounded-2xl transition-all duration-300 ${
+                className={`relative flex flex-col items-center justify-center py-1 rounded-xl transition-all duration-200 select-none ${
                   isActive
-                    ? 'text-cyan-500 scale-105'
+                    ? 'text-cyan-400'
                     : isDark
-                    ? 'text-gray-400 hover:text-gray-200'
-                    : 'text-gray-500 hover:text-gray-700'
+                    ? 'text-slate-400 hover:text-slate-200'
+                    : 'text-slate-500 hover:text-slate-800'
                 }`}
               >
-                {/* Active Top Glowing Pill */}
+                {/* Active Top Glowing Pill Indicator */}
                 {isActive && (
-                  <span className="absolute -top-2 left-1/2 -translate-x-1/2 w-6 h-1 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full shadow-[0_0_12px_#06b6d4]" />
+                  <span className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full shadow-[0_0_8px_#06b6d4]" />
                 )}
 
                 <div
-                  className={`p-1.5 rounded-xl transition-all ${
+                  className={`p-1.5 rounded-lg transition-all ${
                     isActive
-                      ? 'bg-cyan-500/20 border border-cyan-400/40 shadow-[0_0_15px_rgba(6,182,212,0.3)]'
+                      ? isDark
+                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-[0_0_10px_rgba(6,182,212,0.3)]'
+                        : 'bg-cyan-50 text-cyan-700 border border-cyan-200'
                       : 'bg-transparent'
                   }`}
                 >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-cyan-400' : ''}`} />
+                  <Icon className="w-4 h-4" />
                 </div>
 
-                <span
-                  style={{ fontFamily: 'var(--font-cinzel), serif' }}
-                  className={`text-[9px] font-bold tracking-wider uppercase whitespace-nowrap ${
-                    isActive
-                      ? 'text-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.6)] font-black'
-                      : ''
-                  }`}
-                >
+                <span className="text-[9.5px] font-sans font-semibold tracking-tight whitespace-nowrap mt-0.5 leading-none">
                   {link.shortName}
                 </span>
               </a>
             );
           })}
-
-          {/* Mobile Theme Toggle */}
-          <button
-            onClick={toggleTheme}
-            className={`flex flex-col items-center gap-1 px-2.5 py-1.5 rounded-2xl transition-all duration-300 ${
-              isDark ? 'text-yellow-400' : 'text-slate-600'
-            }`}
-            aria-label="Toggle theme"
-          >
-            <div className="p-1.5 rounded-xl">
-              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-            </div>
-            <span
-              style={{ fontFamily: 'var(--font-cinzel), serif' }}
-              className="text-[9px] font-bold tracking-wider uppercase"
-            >
-              {isDark ? 'Light' : 'Dark'}
-            </span>
-          </button>
         </div>
       </nav>
     </>
